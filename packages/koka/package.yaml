@@ -1,0 +1,32 @@
+name: koka
+description: |
+  Koka, a strongly-typed functional language with effect types and handlers
+homepage: https://koka-lang.github.io/koka/doc/index.html
+licenses:
+  - Apache-2.0
+languages:
+  - Koka
+categories:
+  - LSP
+
+source:
+  id: pkg:github/koka-lang/koka@v3.0.4
+  asset:
+    - target: linux_x64_gnu
+      file: koka-{{version}}-linux-x64.tar.gz
+      bin: koka-{{version}}-linux-x64/bin/koka
+    - target: darwin_arm64
+      file: koka-{{version}}-macos-arm64.tar.gz
+      bin: koka-{{version}}-macos-arm64/bin/koka
+    - target: darwin_x64
+      file: koka-{{version}}-macos-x64.tar.gz
+      bin: koka-{{version}}-macos-x64/bin/koka
+    - target: win_x64
+      file: koka-{{version}}-windows-x64.tar.gz
+      bin: koka-{{version}}-windows-x64/bin/koka.exe
+
+schemas:
+  lsp: vscode:https://raw.githubusercontent.com/koka-lang/koka/dev/support/vscode/koka.language-koka/package.json
+
+bin:
+  koka: "{{source.asset.bin}}"
